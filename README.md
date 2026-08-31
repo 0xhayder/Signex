@@ -2,7 +2,7 @@
 
 A trustless P2P marketplace for crypto assets and NFTs.
 
-[![Signex](./preview.png)](https://signex.site)
+[![Signex](./public/preview.png)](https://app.signex.site)
 
 ## Overview
 
