@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ contacts: data || [] })
   } catch (error) {
-    console.error('[v0] Failed to fetch address book:', error)
+    console.error('[Signex] Failed to fetch address book:', error)
     return NextResponse.json({ error: 'Failed to fetch contacts' }, { status: 500 })
   }
 }
@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json({ contact: data[0] })
   } catch (error) {
-    console.error('[v0] Failed to add contact:', error)
+    console.error('[Signex] Failed to add contact:', error)
     return NextResponse.json({ error: 'Failed to add contact' }, { status: 500 })
   }
 }
@@ -78,7 +78,7 @@ export async function DELETE(request: NextRequest) {
 
     return NextResponse.json({ success: true })
   } catch (error) {
-    console.error('[v0] Failed to delete contact:', error)
+    console.error('[Signex] Failed to delete contact:', error)
     return NextResponse.json({ error: 'Failed to delete contact' }, { status: 500 })
   }
 }

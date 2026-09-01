@@ -21,14 +21,14 @@ async function fetchTokenBalances(address: string): Promise<TokenWithBalance[]> 
     const response = await fetch(url)
     
     if (!response.ok) {
-      console.error('[v0] Failed to fetch token balances:', response.statusText)
+      console.error('[Signex] Failed to fetch token balances:', response.statusText)
       return []
     }
     
     const data: TokenBalancesResponse = await response.json()
     return data.tokens || []
   } catch (error) {
-    console.error('[v0] Failed to fetch token balances:', error)
+    console.error('[Signex] Failed to fetch token balances:', error)
     return []
   }
 }

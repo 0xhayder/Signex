@@ -8,8 +8,6 @@ A trustless P2P marketplace for crypto assets and NFTs.
 
 Signex is a Web3 marketplace designed for peer-to-peer trading of crypto assets and NFTs.
 
-This repository contains the frontend application.
-
 ## Tech Stack
 
 * Next.js

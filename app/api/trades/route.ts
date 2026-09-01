@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    console.log('[v0] Fetching all trades for address:', address)
+    console.log('[Signex] Fetching all trades for address:', address)
 
     // Fetch all trades where user is maker or taker (including executed, cancelled, expired)
     const { data, error } = await supabase
@@ -26,11 +26,11 @@ export async function GET(request: NextRequest) {
 
     if (error) throw error
 
-    console.log('[v0] Found trades:', data?.length || 0, 'trades')
+    console.log('[Signex] Found trades:', data?.length || 0, 'trades')
 
     return NextResponse.json({ trades: data || [] })
   } catch (error) {
-    console.error('[v0] Failed to fetch trades:', error)
+    console.error('[Signex] Failed to fetch trades:', error)
     return NextResponse.json({ error: 'Failed to fetch trades' }, { status: 500 })
   }
 }
@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
     
-    console.log('[v0] API POST: Received trade creation request', {
+    console.log('[Signex] API POST: Received trade creation request', {
       maker: body.maker,
       taker: body.taker,
       tokenA: body.tokenA,
@@ -70,14 +70,14 @@ export async function POST(request: NextRequest) {
       .single()
 
     if (error) {
-      console.error('[v0] API POST: Supabase error', error)
+      console.error('[Signex] API POST: Supabase error', error)
       throw error
     }
 
-    console.log('[v0] API POST: Trade created successfully', data.id)
+    console.log('[Signex] API POST: Trade created successfully', data.id)
     return NextResponse.json({ trade: data })
   } catch (error: any) {
-    console.error('[v0] API POST: Failed to create trade:', error)
+    console.error('[Signex] API POST: Failed to create trade:', error)
     return NextResponse.json({ 
       error: 'Failed to create trade', 
       details: error?.message || String(error) 

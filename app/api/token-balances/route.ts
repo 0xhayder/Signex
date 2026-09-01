@@ -206,7 +206,7 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ tokens });
   } catch (error) {
-    console.error("[v0] token-balances error:", error);
+    console.error("[Signex] token-balances error:", error);
     return NextResponse.json({ tokens: [] });
   }
 }

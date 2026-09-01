@@ -21,7 +21,7 @@ async function fetchContacts(userAddress: string): Promise<Contact[]> {
     const data = await response.json()
     return data.contacts || []
   } catch (error) {
-    console.error('[v0] Failed to fetch contacts:', error)
+    console.error('[Signex] Failed to fetch contacts:', error)
     return []
   }
 }
@@ -63,7 +63,7 @@ export function useAddressBook(userAddress: string | undefined) {
       await mutate()
       return { success: true }
     } catch (error) {
-      console.error('[v0] Failed to add contact:', error)
+      console.error('[Signex] Failed to add contact:', error)
       return { success: false, error: 'Failed to add contact' }
     } finally {
       setIsAdding(false)
@@ -84,7 +84,7 @@ export function useAddressBook(userAddress: string | undefined) {
       await mutate()
       return { success: true }
     } catch (error) {
-      console.error('[v0] Failed to delete contact:', error)
+      console.error('[Signex] Failed to delete contact:', error)
       return { success: false }
     } finally {
       setIsDeleting(false)

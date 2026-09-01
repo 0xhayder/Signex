@@ -56,7 +56,6 @@ const SAMPLE_TRADES: any[] = []
 
 interface SwapCardProps {
   isConnected: boolean
-  onConnect: () => void
   activeView: string
   onViewChange: (view: string) => void
 }
@@ -215,7 +214,7 @@ function NFTCard({ nft }: { nft: NFT }) {
   )
 }
 
-export function SwapCard({ isConnected, onConnect, activeView, onViewChange }: SwapCardProps) {
+export function SwapCard({ isConnected, activeView, onViewChange }: SwapCardProps) {
   const { address } = useAccount()
   const { trades, isLoading: tradesLoading, createTrade, executeTrade, cancelTrade } = useTrades()
   const { tokens: userTokens, isLoading: balancesLoading } = useTokenBalances(address)
